@@ -74,4 +74,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  # require~ が試しに追記した分
 end
