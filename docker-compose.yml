@@ -26,7 +26,7 @@ services:
   chrome:
     image: selenium/standalone-chrome-debug:latest
     ports:
-      - 4444:4444
+      - 4445:4444
 volumes:
   bundle:
   mysql_data:
