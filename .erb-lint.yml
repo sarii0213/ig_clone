@@ -10,7 +10,7 @@ linters:
       inherit_from:
         - .rubocop.yml
       Layout/InitialIndentation:
-        Enable: false
+        Enabled: false
       Layout/LineLength:
         Enabled: false
       Layout/TrailingEmptyLines:
