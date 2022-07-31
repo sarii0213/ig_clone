@@ -21,5 +21,6 @@ class Post < ApplicationRecord
   has_many_attached :images
   validates :body, presence: true
   validates :images, presence: true,
-                     blob: { content_type: ['image/png', 'image/webp', 'image/jpg', 'image/jpeg'], size_range: 1..(5.megabytes) }
+                     blob: { content_type: ['image/png', 'image/webp', 'image/jpg', 'image/jpeg'],
+                             size_range: 1..(5.megabytes) }
 end
