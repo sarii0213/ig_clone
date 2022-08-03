@@ -19,6 +19,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many_attached :images
+  has_many :comments, dependent: :destroy
   validates :body, presence: true
   validates :images, presence: true,
                      blob: { content_type: ['image/png', 'image/webp', 'image/jpg', 'image/jpeg'],
