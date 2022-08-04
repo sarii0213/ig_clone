@@ -12,3 +12,14 @@ const mdbInputUpdate = () => {
 document.addEventListener('turbo:render', () => {
     mdbInputUpdate();
 });
+// コメントを新規作成した際にテキストフィールドのアウトラインが表示されなくなる不具合への対応
+document.addEventListener('turbo:frame-render', () => {
+    mdbInputUpdate();
+});
+
+document.addEventListener('turbo:submit-end', () => {
+    setTimeout(
+        mdbInputUpdate,
+        100
+    )
+});
