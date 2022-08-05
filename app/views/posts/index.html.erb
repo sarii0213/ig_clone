@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-header">ユーザー</div>
         <div class="card-body">
-          <%= render @users %>
+          <%= render User.recent(5) %>
         </div>
       </div>
       <!-- /.card -->
