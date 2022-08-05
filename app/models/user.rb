@@ -22,9 +22,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
   has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy,
-           inverse_of: :follower
+                                  inverse_of: :follower
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy,
-           inverse_of: :followed
+                                   inverse_of: :followed
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -34,7 +34,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
-  scope :recent, -> (count = 10) { order(created_at: :desc).limit(count) }
+  scope :recent, ->(count = 10) { order(created_at: :desc).limit(count) }
 
   def owner?(object)
     object.user_id == id
