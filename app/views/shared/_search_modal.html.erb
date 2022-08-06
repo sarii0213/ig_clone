@@ -8,12 +8,12 @@
       <div class="modal-body">
         <%= search_form_for q || Post.ransack do |f| %>
           <div class="mb-3 form-outline">
-            <%= f.search_field :body_cont, class: 'form-control'%>
+            <%= f.search_field :body_cont, class: 'form-control' %>
             <%= f.label :body_cont, '投稿の本文', class: 'form-label' %>
           </div>
           <div class="mb-3 form-outline">
             <%= f.search_field :comments_body_cont, class: 'form-control' %>
-            <%= f.label :comments_body_cont, class: 'form-label'%>
+            <%= f.label :comments_body_cont, class: 'form-label' %>
           </div>
           <div class="mb-3 form-outline">
             <%= f.search_field :user_username_cont, class: 'form-control' %>
