@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   before_action :require_login, only: %i[new create edit update destroy]
+
   def index
     @q = if logged_in?
            current_user.feed.ransack(params[:q])
          else
            Post.ransack(params[:q])
          end
-    @pagy, @posts = pagy(@q.result(distinct: true).with_attached_images.includes(user: { avatar_attachment: {blob: :variant_records} }).order(created_at: :desc))
+    @pagy, @posts = pagy(@q.result(distinct: true).with_attached_images
+      .includes(user: { avatar_attachment: { blob: :variant_records } }).order(created_at: :desc))
   end
 
   def new
@@ -37,7 +39,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.includes(user: { avatar_attachment: {blob: :variant_records } })
+    @comments = @post.comments.includes(user: { avatar_attachment: { blob: :variant_records } })
     @comment = Comment.new
   end
 
