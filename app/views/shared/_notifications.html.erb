@@ -2,7 +2,7 @@
   <a
     class="text-reset me-3 dropdown-toggle hidden-arrow"
     href="#"
-    id="navbarDropdownMenuLink"
+    id="navbarDropdownMenuNotifications"
     role="button"
     data-mdb-toggle="dropdown"
     aria-expanded="false">
@@ -14,15 +14,14 @@
     aria-labelledby="navbarDropdownMenuLink"
     data-popper-placement="null"
     data-mdb-popper="none">
-    <li>
-      <a class="dropdown-item" href="#">Some news</a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">Another news</a>
-    </li>
-    <li>
-      <a class="dropdown-item" href="#">Something else here</a>
-    </li>
+    <% notifications.each do |notification| %>
+      <li>
+        <a class="dropdown-item" href="#">
+          <div class="text-muted small"><%= l notification.created_at, format: :long %></div>
+          <%= notification.title %>
+        </a>
+      </li>
+    <% end %>
   </ul>
 </div>
 <!-- /.dropdown -->
