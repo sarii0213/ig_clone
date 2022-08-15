@@ -17,8 +17,9 @@ class Notification < ApplicationRecord
 
   def notify(*user)
     users = user.flatten
+    time = Time.current
     user_notifications = users.pluck(:id).map do |user_id|
-      { notification_id: id, user_id: }
+      { notification_id: id, user_id: , created_at: time, updated_at: time }
     end
     UserNotification.insert_all(user_notifications) # rubocop:disable Rails/SkipsModelValidations
   end
