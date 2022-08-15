@@ -36,6 +36,10 @@ module InstaCloneVer7
 
     config.generators do |g|
       g.helper false
+      g.skip_routes true
+      g.assets false
+      g.test_framework false
+      g.decorator false
     end
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
