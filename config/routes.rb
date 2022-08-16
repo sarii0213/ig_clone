@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'posts#index'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -13,5 +14,10 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show] do
     resource :relationship, only: %i[create destroy], module: :users
+  end
+
+  namespace :mypage do
+    root to: 'accounts#edit'
+    resource :account, only: %i[edit update]
   end
 end
