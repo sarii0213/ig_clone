@@ -57,4 +57,9 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  # To cope with mysql unknown error on GitHub Actions
+  # https://github.com/brianmario/mysql2/issues/983
+  config.active_job.queue_adapter = :inline
+
 end
