@@ -61,6 +61,6 @@ Rails.application.configure do
 
   # To cope with mysql unknown error on GitHub Actions
   # https://github.com/brianmario/mysql2/issues/983
-  config.active_job.queue_adapter = :inline
-
+  # config.active_job.queue_adapter = :inline
+  config.active_job.queue_adapter = :test
 end
