@@ -33,7 +33,7 @@ services:
   sidekiq:
     build: .
     environment:
-      REDIS_URL: redis://redis.6379
+      REDIS_URL: redis://redis:6379
     volumes:
       - .:/insta_clone:cached
       - bundle:/usr/local/bundle
