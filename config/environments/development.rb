@@ -73,4 +73,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener_web
 
   config.active_job.queue_adapter = :sidekiq
+
+  # To allow requests via ngrok
+  config.hosts << "82d4-157-112-15-106.jp.ngrok.io"
 end
